@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<features>
+    <feature name="finallotshipments" version="${version}">
+        <bundle>mvn:com.melexis.viiper/finallotshipments/${version}</bundle>
+    </feature>
+    <feature name="cordatarchiving" version="${version}">
+	<feature>camel-exec</feature>
+    <bundle>mvn:com.melexis.archiving/cordat-archiving-route/${version}</bundle>
+    </feature>
+</features>
