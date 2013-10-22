@@ -2,28 +2,29 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.melexis.archiving</groupId>
-    <artifactId>cordat-archiving</artifactId>
-    <packaging>pom</packaging>
-    <version>1.0.0-SNAPSHOT</version>
-    <name>ARCHIVING :: Cordat Archiving Tools</name>	
-    
-    <modules>
-        <module>cordat-archiving-repo</module>
-        <module>finallotshipments</module>
-        <module>cordat-archiving-route</module>		
-    </modules>
-
     <parent>
         <groupId>com.melexis.foundation</groupId>
         <artifactId>parentpom</artifactId>
         <version>1.13.7</version>
     </parent>
 
+    <artifactId>cordat-archiving</artifactId>
+    <groupId>com.melexis.archiving</groupId>
+    <packaging>pom</packaging>
+    <version>1.0.0-SNAPSHOT</version>
+    <name>ARCHIVING :: Cordat Archiving Tools</name>	
+    
+    <modules>
+        <module>cordat-archiving-repo</module>
+        <module>viiper-final-lot-shipments</module>
+        <module>cordat-archiving-route</module>		
+    </modules>
+
+
     <properties>
         <java.version>1.6</java.version>
         <ewafplatformversion>2.15.1</ewafplatformversion>
-		<camel-version>2.8.0</camel-version>
+	<camel-version>2.8.0</camel-version>
     </properties>
    
    
@@ -40,7 +41,7 @@
         </snapshotRepository>
         <site>
             <id>www.melexis.com</id>
-            <url>file:///var/www/hudson/crdata/</url>
+            <url>file:///var/www/hudson/cordat-archiving/</url>
         </site>
     </distributionManagement>
 

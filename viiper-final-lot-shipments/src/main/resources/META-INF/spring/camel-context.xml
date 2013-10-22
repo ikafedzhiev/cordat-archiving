@@ -32,22 +32,28 @@
         <property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE"/>
         <property name="locations">
             <list>
-                <value>classpath:cordat-context.properties</value>
-       <!--          <value>file:/etc/finallotshipments/finallotshipments-context.properties</value>     -->            
+                <value>classpath:finallotshipments-context.properties</value>
+                <value>file:/etc/finallotshipments/finallotshipments-context.properties</value>                
             </list>
         </property>
         <property name="ignoreResourceNotFound" value="true"/>
     </bean>
+
+   <osgi:reference id="viiper-ds" interface="javax.sql.DataSource" bean-name="viiper-ds" /> 
+
    
    <bean id="activemq" class="org.apache.activemq.camel.component.ActiveMQComponent">
-        <property name="brokerURL" value="vm://default"/>
+        <property name="brokerURL" value="${activemq.brokerUrl}"/>
    </bean>
 
+   <bean id="activemqewaf" class="org.apache.activemq.camel.component.ActiveMQComponent">
+        <property name="brokerURL" value="${activemq.brokerUrl.ewaf}"/>
+   </bean>
      
-    <bean id="cordat-archiving-route" class="com.melexis.archiving.route.cordat.CordatArchivingRoute" />
+    <bean id="finallotshipments" class="com.melexis.viiper.route.finallotshipments.FinalLotShipments" />
 
-    <camel:camelContext id="cordat-archiving-route-context">
-        <camel:routeBuilder ref="cordat-archiving-route"/>
+    <camel:camelContext id="finallotshipments-context">
+        <camel:routeBuilder ref="finallotshipments"/>
     </camel:camelContext>
 
 
