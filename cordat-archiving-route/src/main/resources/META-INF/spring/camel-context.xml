@@ -22,23 +22,13 @@
         <property name="locations">
             <list>
                 <value>classpath:endpoints.properties</value>                
-                <!-- <value>file:/etc/finallotshipments/endpoints.properties</value> -->
+                <!-- <value>file:/etc/cordat-archiving/endpoints.properties</value> -->
             </list>
         </property>
         <property name="cache" value="false"/>
     </bean>
 
-    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-        <property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE"/>
-        <property name="locations">
-            <list>
-                <value>classpath:cordat-context.properties</value>
-       <!--          <value>file:/etc/finallotshipments/finallotshipments-context.properties</value>     -->            
-            </list>
-        </property>
-        <property name="ignoreResourceNotFound" value="true"/>
-    </bean>
-   
+
    <bean id="activemq" class="org.apache.activemq.camel.component.ActiveMQComponent">
         <property name="brokerURL" value="vm://default"/>
    </bean>

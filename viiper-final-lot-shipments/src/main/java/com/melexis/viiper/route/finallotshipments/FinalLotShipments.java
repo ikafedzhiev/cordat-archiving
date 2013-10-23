@@ -50,13 +50,13 @@ public class FinalLotShipments extends RouteBuilder{
 	public void configure() throws Exception {
 		
 		errorHandler(
-				deadLetterChannel("properties:{{exceptions.to}}")
-				.maximumRedeliveries(180) 
-				.redeliveryDelay(60000)  
-				.asyncDelayedRedelivery()
-				.retryAttemptedLogLevel(LoggingLevel.WARN));
+			deadLetterChannel("properties:{{exceptions.to}}")
+			.maximumRedeliveries(5) // 180
+			.redeliveryDelay(60000)   // 60000
+			.asyncDelayedRedelivery()
+			.retryAttemptedLogLevel(LoggingLevel.WARN));
 
-		from("timer:oracle?fixedRate=true&period=60000")
+		from("timer:oracle?fixedRate=true&period=120000")
 			.setBody(constant("select distinct lot_number as LOTNAME  from apps.wip_discrete_jobs where lot_number like 'A42295%'"))
 			.to("jdbc:viiper-ds")
 			.split().body()
@@ -70,6 +70,7 @@ public class FinalLotShipments extends RouteBuilder{
 			.process(PrepareQueryFinalLotsShipped)
 			.to("jdbc:viiper-ds")
             .split().body()
+            .log("Submit lot \"${body}\" ")
             .process(LotNameAsBody)
 			.log("Submit lot \"${body}\" to Final Lot Shipments Topic.")
 			.to("properties:{{finallotshipments.to}}");

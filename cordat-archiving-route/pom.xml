@@ -12,11 +12,7 @@
 
 	<artifactId>cordat-archiving-route</artifactId>
 	<packaging>bundle</packaging>
-	<name>ARCHIVING :: Cordat Archiving Route exec</name>
-
-	<properties>
-		<activemq.version>5.5.1</activemq.version>
-	</properties>
+	<name>ARCHIVING :: Cordat Archiving Route Exec</name>
 
 	<dependencies>
 		<dependency>
