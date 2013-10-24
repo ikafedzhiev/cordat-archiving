@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <features>
     <feature name="finallotshipments" version="${version}">
-	<feature>camel-jdbc</feature>
+		<feature>camel-jdbc</feature>
         <bundle>mvn:com.melexis.viiper.route.finallotshipments/viiper-final-lot-shipments/${version}</bundle>
     </feature>
     <feature name="cordatarchiving" version="${version}">
-	<feature>camel-exec</feature>
-	<bundle>mvn:com.melexis.archiving/cordat-archiving-route/${version}</bundle>
+		<feature>camel-exec</feature>
+		<bundle>mvn:com.melexis.archiving/cordat-archiving-route/${version}</bundle>
     </feature>
 </features>

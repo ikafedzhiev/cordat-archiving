@@ -16,6 +16,10 @@
 
 	<dependencies>
 		<dependency>
+			<groupId>com.melexis.foundation</groupId>
+			<artifactId>util</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-exec</artifactId>
 			<version>${camel-version}</version>
@@ -56,7 +60,11 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
 		</dependency>
-
+      <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-exec</artifactId>
+        <version>1.0</version>
+      </dependency>
 		<!-- logging -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
@@ -102,7 +110,7 @@
 				<extensions>true</extensions>
 				<configuration>
 					<instructions>
-						<Import-Package>org.apache.activemq.xbean,*</Import-Package>
+						<Import-Package>org.apache.activemq.xbean,com.melexis.executor,*</Import-Package>
 						<Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
 						<Bundle-Description>${project.description}</Bundle-Description>
 						<DynamicImport-Package>oracle.jdbc</DynamicImport-Package>
