@@ -16,5 +16,6 @@ AND NOT EXISTS
   (SELECT 1
 	FROM apps.mtl_onhand_quantities moq
 	WHERE wdd.lot_number = moq.lot_number
+	AND moq.subinventory_code not in ('SHIP STAGE','SAMPLE FG')	
   )
 ORDER BY lot_number 

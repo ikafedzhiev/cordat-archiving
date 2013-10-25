@@ -22,7 +22,7 @@
         <property name="locations">
             <list>
                 <value>classpath:endpoints.properties</value>                
-                <!-- <value>file:/etc/finallotshipments/endpoints.properties</value> -->
+                <value>file:/etc/finallotshipments/endpoints.properties</value>
             </list>
         </property>
         <property name="cache" value="false"/>
@@ -39,7 +39,7 @@
         <property name="ignoreResourceNotFound" value="true"/>
     </bean>
 
-   <osgi:reference id="viiper-ds" interface="javax.sql.DataSource" bean-name="viiper-ds" /> 
+   <osgi:reference id="viiper-ds-prod" interface="javax.sql.DataSource" bean-name="viiper-ds-prod" /> 
 
    
    <bean id="activemq" class="org.apache.activemq.camel.component.ActiveMQComponent">
