@@ -45,7 +45,7 @@
     
     <bean id="finallotshipments" class="com.melexis.viiper.route.finallotshipments.FinalLotShipments" />
 
-    <osgi:reference id="viiper-ds-prod" interface="javax.sql.DataSource" bean-name="viiper-ds-prod" /> 
+    <osgi:reference id="viiper-ds" interface="javax.sql.DataSource" bean-name="viiper-ds" /> 
 
     <camel:camelContext id="finallotshipments-context">
         <camel:routeBuilder ref="finallotshipments"/>
