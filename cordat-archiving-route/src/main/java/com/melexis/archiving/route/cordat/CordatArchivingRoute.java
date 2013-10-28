@@ -22,7 +22,7 @@ public class CordatArchivingRoute extends RouteBuilder{
             this.site = site;
 		}
 		
-		//  processor to call the cordat archiver and to handle the exceptions
+		//  processor to call the cordat archiver and handle the exceptions
 		public void process(Exchange exchange) throws Exception {
         	
 			final Message in = exchange.getIn();
@@ -51,28 +51,28 @@ public class CordatArchivingRoute extends RouteBuilder{
 
 		//	define custom error handling
 		errorHandler(
-			deadLetterChannel("properties:{{exceptions.to}}")
+			deadLetterChannel("properties:{{cordatarchiving.exceptions.to}}")
 			.maximumRedeliveries(96) 
 			.redeliveryDelay(900000) 
 			.asyncDelayedRedelivery()
 			.retryAttemptedLogLevel(LoggingLevel.WARN));
 		
 		//  Cordat archiving route for SOFIA
-		from("properties:{{finallotshipments.from}}")
+		from("properties:{{cordatarchiver.sofia.from}}")
 			.routeId("CordatArchiverSofia")		
 			.log("Starting Cordat archiving for Lot: ${in.body} Site: SOFIA")
 			.setHeader("to", simple("properties:cordatarchiver.to"))
 			.process(new ArchiveLot("sofia"));
 
 		//  Cordat archiving route for IEPER
-		from("properties:{{finallotshipments.from}}")
+		from("properties:{{cordatarchiver.ieper.from}}")
 			.routeId("CordatArchiverIeper")		
 			.log("Starting Cordat archiving for Lot: ${in.body} Site: IEPER")
 			.setHeader("to", simple("properties:cordatarchiver.to"))
 			.process(new ArchiveLot("ieper"));		
 
 		//  Cordat archiving route for ERUFRT
-		from("properties:{{finallotshipments.from}}")
+		from("properties:{{cordatarchiver.erfurt.from}}")
 			.routeId("CordatArchiverErfurt")		
 			.log("Starting Cordat archiving for Lot: ${in.body} Site: ERFURT")
 			.setHeader("to", simple("properties:cordatarchiver.to"))

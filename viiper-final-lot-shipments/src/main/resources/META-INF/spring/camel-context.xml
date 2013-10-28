@@ -22,7 +22,7 @@
         <property name="locations">
             <list>
                 <value>classpath:endpoints.properties</value>                
-                <value>file:/etc/finallotshipments/endpoints.properties</value>
+                <value>file:/etc/viiper/endpoints.properties</value>
             </list>
         </property>
         <property name="cache" value="false"/>
@@ -33,24 +33,19 @@
         <property name="locations">
             <list>
                 <value>classpath:finallotshipments-context.properties</value>
-                <value>file:/etc/finallotshipments/finallotshipments-context.properties</value>                
+                <value>file:/etc/viiper/finallotshipments-context.properties</value>                
             </list>
         </property>
         <property name="ignoreResourceNotFound" value="true"/>
     </bean>
 
-   <osgi:reference id="viiper-ds-prod" interface="javax.sql.DataSource" bean-name="viiper-ds-prod" /> 
-
-   
-   <bean id="activemq" class="org.apache.activemq.camel.component.ActiveMQComponent">
+    <bean id="activemq" class="org.apache.activemq.camel.component.ActiveMQComponent">
         <property name="brokerURL" value="${activemq.brokerUrl}"/>
-   </bean>
-
-   <bean id="activemqewaf" class="org.apache.activemq.camel.component.ActiveMQComponent">
-        <property name="brokerURL" value="${activemq.brokerUrl.ewaf}"/>
-   </bean>
-     
+    </bean>
+    
     <bean id="finallotshipments" class="com.melexis.viiper.route.finallotshipments.FinalLotShipments" />
+
+    <osgi:reference id="viiper-ds-prod" interface="javax.sql.DataSource" bean-name="viiper-ds-prod" /> 
 
     <camel:camelContext id="finallotshipments-context">
         <camel:routeBuilder ref="finallotshipments"/>
