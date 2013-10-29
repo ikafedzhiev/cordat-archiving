@@ -6,7 +6,7 @@
 	<parent>
 		<artifactId>cordat-archiving</artifactId>
 		<groupId>com.melexis.archiving</groupId>
-		<version>1.0.1</version>
+		<version>1.0.2-SNAPSHOT</version>
 	</parent>
 
 	<artifactId>cordat-archiving-route</artifactId>
