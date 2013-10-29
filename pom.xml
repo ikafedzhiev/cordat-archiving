@@ -23,7 +23,6 @@
 
 	<properties>
 		<java.version>1.6</java.version>
-		<camel-version>2.8.0</camel-version>
 	</properties>
 
     <scm>
