@@ -1,6 +1,6 @@
 SELECT DISTINCT wdd.lot_number AS lot_number
 FROM apps.wsh_delivery_details wdd
-  , wsh_new_deliveries  wnd  
+  , apps.wsh_new_deliveries  wnd  
   , apps.wsh_delivery_assignments wda
   , apps.hr_organization_units ou
   , apps.mtl_system_items msi
