@@ -27,7 +27,7 @@
 	</properties>
 
     <scm>
-        <connection>scm:git:ssh://git@github.com:melexis/cordat-archiving.git</connection>
+        <connection>scm:git:ssh://git@github.com/melexis/cordat-archiving.git</connection>
     </scm>
    
    
