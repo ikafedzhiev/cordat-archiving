@@ -6,7 +6,7 @@
 	<parent>
         <artifactId>cordat-archiving</artifactId>
         <groupId>com.melexis.archiving</groupId>
-    	<version>1.0.1-SNAPSHOT</version>
+    	<version>1.0.1</version>
 	</parent>	
 	
 	<artifactId>viiper-final-lot-shipments</artifactId>
