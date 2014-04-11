@@ -9,9 +9,9 @@
 		<version>1.1.0-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>cordat-archiving-route</artifactId>
+	<artifactId>cordat-archiving-delaying</artifactId>
 	<packaging>bundle</packaging>
-	<name>ARCHIVING :: Cordat Archiving Route Exec</name>
+	<name>ARCHIVING :: Cordat Archiving Delaying</name>
 
 	<dependencies>
 		<dependency>
@@ -35,7 +35,20 @@
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-spring</artifactId>
 		</dependency>
-
+        <dependency>
+            <groupId>postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>9.1-901.jdbc4</version>            
+        </dependency>
+        <dependency>
+            <groupId>commons-dbcp</groupId>
+            <artifactId>commons-dbcp</artifactId>
+        </dependency>
+        <dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-jdbc</artifactId>
+		</dependency>
+      
 		<!-- the ActiveMQ client with connection pooling -->
 
 		<dependency>
@@ -112,7 +125,6 @@
 						<Import-Package>org.apache.activemq.xbean,com.melexis.executor,*</Import-Package>
 						<Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
 						<Bundle-Description>${project.description}</Bundle-Description>
-						<DynamicImport-Package>oracle.jdbc</DynamicImport-Package>
 					</instructions>
 				</configuration>
 			</plugin>
