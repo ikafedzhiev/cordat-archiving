@@ -41,7 +41,16 @@
 		<property name="brokerURL" value="${activemq.brokerUrl}"/>
 	</bean>
 
-	<bean id="cordat-archiving-route" class="com.melexis.archiving.route.cordat.CordatArchivingRoute" />
+    <bean id="archive-pgsql-ds" class="org.apache.commons.dbcp.BasicDataSource">
+	    <property name="driverClassName" value="org.postgresql.Driver" />
+	    <property name="url" value="jdbc:postgresql://${archive.server}/${archive.database}" />
+	    <property name="username" value="${archive.username}" />
+	    <property name="password" value="${archive.username}" />
+    </bean>
+    
+	<bean id="cordat-archiving-route" class="com.melexis.archiving.route.cordat.CordatArchivingRoute">
+    	 <constructor-arg index="0" value="${archiving.interval}"/>
+    </bean> 
     
 	<camel:camelContext id="cordat-archiving-route-context">
 		<camel:routeBuilder ref="cordat-archiving-route" />

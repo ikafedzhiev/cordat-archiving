@@ -16,7 +16,6 @@
     <name>ARCHIVING :: Cordat Archiving Tools</name>	
     
     <modules>
-        <module>cordat-archiving-delaying</module>
         <module>cordat-archiving-repo</module>
         <module>viiper-final-lot-shipments</module>
         <module>cordat-archiving-route</module>		
