@@ -12,7 +12,7 @@
     <artifactId>cordat-archiving</artifactId>
     <groupId>com.melexis.archiving</groupId>
     <packaging>pom</packaging>
-    <version>1.1.1</version>
+    <version>1.1.2-SNAPSHOT</version>
     <name>ARCHIVING :: Cordat Archiving Tools</name>	
     
     <modules>
