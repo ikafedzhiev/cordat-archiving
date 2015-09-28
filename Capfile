@@ -11,11 +11,11 @@ namespace :cordatarch do
         on roles(:karaf) do
             upgrade([{ :feature_url => "mvn:com.melexis.repository/cordat-archiving-repo/1.0.1/xml/features",
                        :feature => "finallotshipments",
-                       :version => "1.0.1"
+                       :version => "1.1.2"
                      },
 		     { :feature_url => "mvn:com.melexis.repository/cordat-archiving-repo/1.0.1/xml/features",
                        :feature => "cordatarchiving",
-                       :version => "1.0.1"
+                       :version => "1.1.2"
                      }])
         end
     end
