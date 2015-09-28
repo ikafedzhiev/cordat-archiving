@@ -20,6 +20,19 @@ namespace :cordatarch do
         end
     end
 
+    task :release_1_1_2 do
+        on roles(:karaf) do
+            upgrade([{ :feature_url => "mvn:com.melexis.repository/cordat-archiving-repo/1.1.2/xml/features",
+                       :feature => "finallotshipments",
+                       :version => "1.1.2"
+                     },
+                     { :feature_url => "mvn:com.melexis.repository/cordat-archiving-repo/1.1.2/xml/features",
+                       :feature => "cordatarchiving",
+                       :version => "1.1.2"
+                     }])
+        end
+    end
+
     task :uninstall do
         on roles(:karaf) do
             feature_uninstall("finallotshipments","cordatarchiving")
